@@ -1,0 +1,26 @@
+spring:
+  # MariaDB
+  datasource:
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    #driver-class-name: org.mariadb.jdbc.Driver
+    username: jjye
+    url: jdbc:log4jdbc:mariadb://127.0.0.1:3306/TEMP?characterEncoding=UTF-8
+    password: jjye1234
+  application:
+    name: project-manager-backend
+# MyBatis Configuration
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  # xml파일 result type에 패키지명을 생략할 수 있도록 alias 설정
+  type-aliases-package: com.satgat.project_manager_backend.model
+  configuration:
+    # model 프로퍼티 camel case 설정
+    map-underscore-to-camel-case: "true"
+# 콘솔에서 SQL 로그 확인
+logging:
+  level:
+    org:
+      springframework:
+        jdbc:
+          core: DEBUG
+      mybatis: DEBUG
